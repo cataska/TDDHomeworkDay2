@@ -1,2 +1,2 @@
 # TDDHomeworkDay2
-TDD Homework Day 2
+Day 2 homework of TDD class
