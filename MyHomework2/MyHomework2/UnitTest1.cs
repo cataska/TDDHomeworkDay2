@@ -73,5 +73,18 @@ namespace MyHomework2
             var expected = 370;
             Assert.AreEqual(expected, cart.checkout());
         }
+
+        [TestMethod]
+        public void Test_One_Volume_1_Two_Volume_2_Two_Volume_3_Price_Should_Be_460()
+        {
+            var cart = new Cart();
+            cart.add(new Book { volume = 1, price = 100 });
+            cart.add(new Book { volume = 2, price = 100 });
+            cart.add(new Book { volume = 2, price = 100 });
+            cart.add(new Book { volume = 3, price = 100 });
+            cart.add(new Book { volume = 3, price = 100 });
+            var expected = 460;
+            Assert.AreEqual(expected, cart.checkout());
+        }
     }
 }
