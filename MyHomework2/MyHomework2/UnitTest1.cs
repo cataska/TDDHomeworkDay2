@@ -11,7 +11,7 @@ namespace MyHomework2
         public void Test_One_Volume_1_Price_Should_Be_100()
         {
             var cart = new Cart();
-            cart.add(new Book(volume = 1, price = 100));
+            cart.add(new Book() {volume = 1, price = 100});
             var expected = 100;
             Assert.AreEqual(expected, cart.checkout());
         }
