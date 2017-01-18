@@ -24,6 +24,9 @@ namespace MyHomework2
             decimal total = books.Sum(book => book.price);
             switch (books.Count)
             {
+                case 4:
+                    total *= 0.8M;
+                    break;
                 case 3:
                     total *= 0.9M;
                     break;
