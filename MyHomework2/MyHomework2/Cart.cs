@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 
@@ -24,6 +25,10 @@ namespace MyHomework2
             if (books.Count == 2)
             {
                 total *= 0.95M;
+            }
+            else if (books.Count == 3)
+            {
+                total *= 0.9M;
             }
             return total;
         }
