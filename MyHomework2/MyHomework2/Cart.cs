@@ -22,13 +22,14 @@ namespace MyHomework2
         public decimal checkout()
         {
             decimal total = books.Sum(book => book.price);
-            if (books.Count == 2)
+            switch (books.Count)
             {
-                total *= 0.95M;
-            }
-            else if (books.Count == 3)
-            {
-                total *= 0.9M;
+                case 3:
+                    total *= 0.9M;
+                    break;
+                case 2:
+                    total *= 0.95M;
+                    break;
             }
             return total;
         }
