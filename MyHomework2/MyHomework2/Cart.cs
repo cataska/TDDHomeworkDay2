@@ -18,9 +18,14 @@ namespace MyHomework2
             books.Add(book);
         }
 
-        public int checkout()
+        public decimal checkout()
         {
-            return books.Sum(book => book.price);
+            decimal total = books.Sum(book => book.price);
+            if (books.Count == 2)
+            {
+                total *= 0.95M;
+            }
+            return total;
         }
     }
 }
