@@ -21,12 +21,11 @@ namespace MyHomework2
 
         public decimal checkout()
         {
-            return CalcPrice(this.books);
+            return CalcPrice(this.books, 0);
         }
 
-        private decimal CalcPrice(IEnumerable<Book> books)
+        private decimal CalcPrice(IEnumerable<Book> books, decimal total)
         {
-            decimal total = 0;
             if (!books.Any())
             {
                 return total;
@@ -34,14 +33,13 @@ namespace MyHomework2
 
             var series = books.GroupBy(b => b.volume).Select(b => b.First());
             total += ApplyDiscount(series);
-            total += CalcPrice(books.Except(series));
-            return total;
+            return CalcPrice(books.Except(series), total);
         }
 
-        private decimal ApplyDiscount(IEnumerable<Book> books)
+        private decimal ApplyDiscount(IEnumerable<Book> series)
         {
-            decimal total = books.Sum(book => book.price);
-            switch (books.Count())
+            decimal total = series.Sum(book => book.price);
+            switch (series.Count())
             {
                 case 5:
                     total *= 0.75M;
